@@ -10,6 +10,18 @@ function App() {
     "https://todo-nine-sandy-26.vercel.app/img/moon.svg"
   );
 
+  useEffect(() => {
+    if (window.location.hash === "#light") {
+      setMode("light-mode");
+      setHeadStyle("light-header");
+      setImgsrc("https://todo-nine-sandy-26.vercel.app/img/moon.svg");
+    } else if (window.location.hash === "#dark") {
+      setMode("dark-mode");
+      setHeadStyle("dark-header");
+      setImgsrc("https://todo-nine-sandy-26.vercel.app/img/sun.svg");
+    }
+  }, []);
+
   const toggleMode = () => {
     if (mode === "light-mode") {
       setMode("dark-mode");
@@ -22,6 +34,7 @@ function App() {
       setImgsrc("https://todo-nine-sandy-26.vercel.app/img/moon.svg");
       window.location.hash = "light";
     }
+
   };
 
   const [push, setPush] = useState("");
